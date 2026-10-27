@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+data/
+logs/
+*.log
+.env
+config.toml
+config.json
+accounts.txt
+accounts.jsonl
+accounts.json
+tokens.txt
+cookies*.json
+scratch/
+output/
