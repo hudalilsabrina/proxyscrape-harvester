@@ -1,4 +1,20 @@
 import os
+
+def _load_dotenv(path=".env"):
+    """Baca .env (KEY=VALUE) tanpa dependensi eksternal."""
+    try:
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), path)) as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+    except FileNotFoundError:
+        pass
+
+
+_load_dotenv()
 import sys
 import time
 import json
